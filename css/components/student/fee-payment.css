@@ -1,0 +1,53 @@
+:root {
+  /* colors */
+  --primaryBlue: #022243;
+  --secondaryGold: #ffc72c;
+  --secondaryGreen: #00a651;
+  --neutralGrey: #f5f5f5;
+  --neutralWhite: #fff;
+  --neutralBlack: #222;
+
+  /* others */
+  --transition: all 0.25s linear;
+  --formText: clamp(0.84rem, calc(0.75rem + 0.49vw), 1.13rem);
+  --borderRadius: 0.25rem;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  padding: 3rem min(4rem, 10vw);
+}
+
+form {
+  max-width: 400px;
+}
+
+.card-details {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: -0.75rem;
+}
+
+.card-details__expiry {
+  width: 70%;
+}
+
+.card-details__cvv {
+  width: 30%;
+}
+
+.cta-btn {
+  background-color: var(--secondaryGreen);
+  color: var(--neutralWhite);
+
+  width: auto;
+  margin-top: 0.5rem;
+
+  float: right;
+
+  font-size: 0.9rem;
+
+  border: none;
+  border-radius: var(--borderRadius);
+}

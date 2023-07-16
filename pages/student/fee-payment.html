@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fee Payment</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/header&footer.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/components/student/fee-payment.css"
+    />
+  </head>
+  <body>
+    <!-- 
+        !!! TODO !!!
+      - Restyle the layout
+    -->
+
+    <header></header>
+
+    <main>
+      <form id="payment-form" action="./dashboard.html">
+        <h2 class="form__heading heading">Fee Payment</h2>
+        <div class="underline"></div>
+
+        <!-- 
+            pattern="ALH\d{8}"
+            pattern=".{11}"
+          required
+        -->
+        <div class="form__section">
+          <label for="reg-num">Registration Number</label>
+          <input
+            type="text"
+            id="reg-num"
+            name="reg-num"
+            placeholder="ALH12345687"
+            title="Registration Number"
+            class="form-default"
+          />
+          <p class="error-message reg-num-error"></p>
+        </div>
+
+        <div class="form__section">
+          <label for="term">Term:</label>
+          <select id="term" name="term" class="form-default">
+            <option value="" class="form-default">(select a term)</option>
+            <option value="1" class="form-default">1st term</option>
+            <option value="2" class="form-default">2nd term</option>
+            <option value="3" class="form-default">3rd term</option>
+          </select>
+          <p class="error-message term-error"></p>
+        </div>
+
+        <!-- required -->
+        <div class="form__section">
+          <label for="cardholder-name">Cardholder Name</label>
+          <input
+            type="text"
+            id="cardholder-name"
+            name="cardholder-name"
+            placeholder="Alli Hasan"
+            class="form-default"
+          />
+          <p class="error-message cardholder-name-error"></p>
+        </div>
+
+        <!-- required -->
+        <div class="form__section">
+          <label for="card-number">Card Number</label>
+          <input
+            type="text"
+            id="card-number"
+            name="card-number"
+            placeholder="xxxx xxxx xxxx xxxx"
+            class="form-default"
+          />
+          <p class="error-message card-number-error"></p>
+        </div>
+
+        <!-- required -->
+        <div class="card-details">
+          <div class="form__section card-details__expiry">
+            <label for="expiration-date">Expiry Date</label>
+            <input
+              type="text"
+              id="expiration-date"
+              name="expiration-date"
+              class="form-default"
+              placeholder="mm/yy"
+            />
+            <p class="error-message expiration-date-error"></p>
+          </div>
+
+          <!-- required -->
+          <div class="form__section card-details__cvv">
+            <label for="cvv">CVV</label>
+            <input
+              type="text"
+              id="cvv"
+              name="cvv"
+              placeholder="***"
+              class="form-default"
+            />
+            <p class="error-message cvv-error"></p>
+          </div>
+        </div>
+
+        <button type="submit" class="form__btn cta-btn">Pay Now</button>
+      </form>
+    </main>
+
+    <footer></footer>
+
+    <!-- js -->
+    <script src="../../assets/icons/all.js"></script>
+    <script src="../../js/shared-components-2.js"></script>
+    <script src="../../js/components/student/fee-payment.js"></script>
+  </body>
+</html>

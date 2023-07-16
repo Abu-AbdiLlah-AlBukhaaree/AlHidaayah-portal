@@ -1,0 +1,246 @@
+:root {
+  /* colors */
+  --primaryBlue: #022243;
+  --secondaryGold: #ffc72c;
+  --secondaryGreen: #00a651;
+  --neutralGrey: #f5f5f5;
+  --neutralWhite: #fff;
+  --neutralBlack: #222;
+
+  /* others */
+  --transition: all 0.25s linear;
+}
+
+/* header */
+header {
+  position: sticky;
+  top: 0;
+
+  max-height: 100vh;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  height: 50px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  background-color: var(--neutralGrey);
+  color: var(--primaryBlue);
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 2px solid var(--primaryBlue);
+}
+
+.open-nav,
+.close-nav {
+  background-color: transparent;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.open-nav {
+  color: var(--primaryBlue);
+}
+
+.close-nav {
+  display: none;
+  color: #ce0808;
+}
+
+/* nav links */
+.nav-links {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  background-color: var(--primaryBlue);
+  color: var(--neutralGrey);
+  transform: translateY(-150%);
+  overflow: hidden;
+  list-style-type: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.show-links {
+  transform: translateY(0);
+  height: 100vh;
+}
+
+.nav-links a {
+  display: block;
+  letter-spacing: 0.05rem;
+}
+
+.single-nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+.single-nav-link:hover {
+  color: var(--secondaryGreen);
+}
+
+.sublevel {
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 0 0;
+  transform: translateX(100vw);
+
+  background-color: var(--primaryBlue);
+  color: var(--neutralGrey);
+  transition: all 0.1s linear;
+}
+
+.show-sublevel {
+  transform: translateX(0vw);
+}
+
+.single-sublevel-link {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+
+.single-sublevel-link:hover {
+  color: var(--secondaryGreen);
+}
+
+.close-sublevel {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.close-sublevel:hover {
+  color: var(--secondaryGold);
+}
+
+@media screen and (min-width: 800px) {
+  header {
+    padding: 0.5rem 1.15rem;
+    border-bottom: 2px solid var(--primaryBlue);
+    background-color: var(--neutralGrey);
+  }
+
+  nav {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-header {
+    padding: 0;
+    border: none;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-links {
+    position: relative;
+    width: auto;
+    height: initial;
+    z-index: 0;
+    background-color: transparent;
+    color: var(--primaryBlue);
+    transform: none;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .single-nav-link:hover {
+    background-color: transparent;
+    color: var(--secondaryGreen);
+  }
+
+  .sublevel {
+    display: none;
+    position: fixed;
+    inset: unset;
+    top: 3.25rem;
+    transform: none;
+    line-height: 0.75rem;
+  }
+
+  .nav-links > ul > li:hover > .sublevel {
+    display: block;
+    width: auto;
+    background-color: var(--primaryBlue);
+  }
+
+  .sublevel ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .single-sublevel-link:hover {
+    background-color: unset;
+    color: var(--secondaryGreen);
+  }
+
+  .close-sublevel {
+    display: none;
+  }
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background-color: var(--primaryBlue);
+  color: #d6d3d3;
+  padding: 3rem 1.5rem 0.5rem;
+  line-height: 1.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer h3 {
+  color: #ffc72caa;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  margin: 0.85rem 0;
+}
+
+footer h3 {
+  padding-bottom: 0.25rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+.copyright {
+  text-align: center;
+  letter-spacing: 0.25rem;
+  margin-top: 1rem;
+}
