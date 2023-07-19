@@ -8,7 +8,7 @@ import {
   selectErrorElement,
   validatePattern,
   displayErrorMessage,
-} from '../../modules.js';
+} from '../../js/modules.js';
 
 // ********** VARIABLES **********
 // Some have been imported in line 1

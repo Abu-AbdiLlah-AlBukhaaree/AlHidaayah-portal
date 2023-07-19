@@ -3,7 +3,7 @@
   - Validate Number of subjects to be 4 + Compulsory subjects (After updating contentful list)
 */
 
-import { space, accessToken } from '../../../config.js';
+import { space, accessToken } from '../../config.js';
 import {
   // varibles
   regNumPattern,
@@ -13,7 +13,7 @@ import {
   validatePattern,
   selectErrorElement,
   displayErrorMessage,
-} from '../../modules.js';
+} from '../../js/modules.js';
 
 // ***********  VARIABLES ************
 // Some have been imported on line 1
