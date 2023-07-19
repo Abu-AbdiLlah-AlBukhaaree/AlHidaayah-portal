@@ -16,39 +16,66 @@
     <header></header>
 
     <main>
-      <section class="student-profile">
-        <h2 class="student-profile__heading heading">Student Profile</h2>
-        <div class="underline"></div>
-
-        <div class="student-info">
-          <div class="info-row">
-            <span>Name:</span>
-            <span class="student-name right">John Doe</span>
+      <div class="container">
+        <section class="student-profile">
+          <div class="student-profile__img-container">
+            <div class="student-profile__img">
+              <img
+                src="../assets/images/student.png"
+                alt="student passport photograph"
+                class="img"
+              />
+            </div>
+            <h3 class="student heading capitalize">Alli Hassan</h3>
           </div>
+          <hr />
+          <article class="student-detail">
+            <p>
+              <span class="entry">Reg. Number: </span>
+              <span class="value">ALH01234567</span>
+            </p>
+            <p>
+              <span class="entry">Class: </span>
+              <span class="value">SSS3</span>
+            </p>
+            <p>
+              <span class="entry">Department: </span>
+              <span class="value">Science</span>
+            </p>
+          </article>
+        </section>
 
-          <div class="info-row">
-            <span>Email:</span>
-            <span class="student-email right">john.doe@example.com</span>
-          </div>
+        <section class="general-info">
+          <h2 class="section-heading heading">Student Bio</h2>
 
-          <div class="info-row">
-            <span>Phone:</span>
-            <span class="student-phone right">123-456-7890</span>
-          </div>
+          <table>
+            <tr>
+              <td class="entry">Name</td>
+              <td class="student-name capitalize">Alli Hassan</td>
+            </tr>
 
-          <div class="info-row">
-            <span>Address:</span>
-            <span class="student-address right"
-              >123 Main St, City, Country</span
-            >
-          </div>
+            <tr>
+              <td class="entry">Email</td>
+              <td class="student-email">allihassan@example.com</td>
+            </tr>
 
-          <div class="info-row">
-            <span title="Date of Birth">DOB:</span>
-            <span class="student-dob right">2004-03-12</span>
-          </div>
-        </div>
-      </section>
+            <tr>
+              <td class="entry">Phone</td>
+              <td class="student-phone">123-456-7890</td>
+            </tr>
+
+            <tr>
+              <td class="entry">Address</td>
+              <td class="student-address">123 Main St, City, Country</td>
+            </tr>
+
+            <tr>
+              <td class="entry">DOB</td>
+              <td class="student-dob">2004-03-12</td>
+            </tr>
+          </table>
+        </section>
+      </div>
 
       <section class="update-profile">
         <form class="update-form">

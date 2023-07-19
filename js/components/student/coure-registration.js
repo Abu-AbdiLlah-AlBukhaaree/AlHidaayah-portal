@@ -1,25 +1,30 @@
+/* 
+    !!! TODO !!!
+  - Validate Number of subjects to be 4 + Compulsory subjects (After updating contentful list)
+*/
+
+import { space, accessToken } from '../../../config.js';
+import {
+  // varibles
+  regNumPattern,
+  // functions
+  clearInputs,
+  clearErrorMessages,
+  validatePattern,
+  selectErrorElement,
+  displayErrorMessage,
+} from '../../modules.js';
+
+// ***********  VARIABLES ************
+// Some have been imported on line 1
 const form = document.querySelector('form');
 const departmentName = document.getElementById('department');
 const subjectsContainer = document.querySelector('.subjects-container');
 const departmentSelect = document.getElementById('department');
-const errorMessage = document.querySelectorAll('.error-message');
-
-let isError = false;
-
-/* 
-
-!!! TODO !!!
-- Validate Number of subjects to be 4 + Compulsory subjects (After updating contentful list)
-- Look for a way to check for any errors and use that to validate your form for submission
-*/
-
-import { space, accessToken } from '../../../config.js';
 
 // Contentful API
 const client = contentful.createClient({
-  // This is the space ID. A space is like a project folder in Contentful terms
   space: space,
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
   accessToken: accessToken,
 });
 
@@ -52,43 +57,47 @@ getSubjects();
 
 // ********** EVENT LISTENERS ***********
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  clearErrorMessages();
+  e.preventDefault(); // Prevent default form submission behavior
+  clearErrorMessages(); // Clear any previous error messages
+
   const formData = new FormData(e.currentTarget);
+  const regNum = e.currentTarget.reg_num.value.trim();
+  let isError = false;
 
+  // Check if all form fields are filled (excluding 'reg_num')
   for (let [name, value] of formData) {
-    if (!value && name === 'reg-num') {
-      const element = selectErrorElement(name);
-      element.textContent = 'Please enter value';
-
-      isError = true;
-    } else if (!value && (name === 'term' || name === 'department')) {
+    if (!value && name !== 'reg_num') {
       const element = selectErrorElement(name);
       element.textContent = `Please select a ${name}`;
-
       isError = true;
-    } else if (name === 'reg-num') {
-      validateInput(
-        /^ALH\d{8}$/,
-        value,
-        name,
-        validatePattern,
-        `Your registration number should beging with 'ALH' and followed by 8 numbers`
-      );
-
+    } else if (!value && name === 'reg_num') {
+      const element = selectErrorElement(name);
+      element.textContent = `Please enter value`;
       isError = true;
-    } else {
-      isError = false;
     }
   }
 
-  if (isError) {
+  // Validate registration number format if not empty
+  if (regNum && !validatePattern(regNumPattern, regNum)) {
+    displayErrorMessage(
+      'reg_num',
+      `Your registration number should beging with 'ALH' and followed by 8 numbers`
+    );
+    isError = true;
+  }
+
+  // Custom validation for number of subjects (TODO)
+  // TODO: Validate Number of subjects to be 4 + Compulsory subjects (After updating contentful list)
+
+  if (!isError) {
     clearInputs();
     e.currentTarget.submit();
   }
 });
 
 // ********** FUNCTIONS ***********
+// some have been imported on line 1
+
 // for generating html content from array of subjects
 function displaySubjects(subject_name, isCompulsory, subject_id) {
   if (isCompulsory) {
@@ -136,38 +145,6 @@ function sortDepartments(a, b) {
     return 1;
   }
   return 0;
-}
-
-function clearInputs() {
-  const inputs = document.querySelectorAll('input');
-
-  inputs.forEach((input) => {
-    input.value = '';
-  });
-}
-
-function clearErrorMessages() {
-  const errorMessages = document.querySelectorAll('.error-message');
-  errorMessages.forEach(function (errorMessage) {
-    errorMessage.textContent = '';
-  });
-}
-
-function validatePattern(pattern, input) {
-  return pattern.test(input);
-}
-
-function selectErrorElement(element) {
-  return document.querySelector(`.${element}-error`);
-}
-
-function validateInput(pattern, value, name, isValid, message) {
-  if (!isValid(pattern, value)) {
-    const element = selectErrorElement(name);
-
-    element.textContent = message;
-  } else {
-  }
 }
 
 // ********** RESOURCES **********

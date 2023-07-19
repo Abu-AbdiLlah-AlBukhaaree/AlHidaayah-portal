@@ -19,6 +19,7 @@
 
   /* others */
   --transition: all 0.25s linear;
+  --h2: clamp(1.5rem, 1.24rem + 1.3vw, 2.25rem);
   --formText: clamp(0.84rem, calc(0.75rem + 0.49vw), 1.13rem);
   --borderRadius: 0.25rem;
   --boxShadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
@@ -37,7 +38,6 @@ body {
 }
 
 main {
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -49,6 +49,11 @@ main {
 h1 {
   margin-block: 0.5rem 1.5rem;
   line-height: 1.25em;
+}
+
+img {
+  display: block;
+  width: 100%;
 }
 
 a {

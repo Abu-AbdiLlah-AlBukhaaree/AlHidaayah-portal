@@ -9,38 +9,85 @@
 
   /* others */
   --transition: all 0.25s linear;
+  --h2: clamp(1.5rem, 1.24rem + 1.3vw, 2.25rem);
   --formText: clamp(0.84rem, calc(0.75rem + 0.49vw), 1.13rem);
   --borderRadius: 0.25rem;
   --boxShadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 main {
+  max-width: 920px;
   padding: 2rem;
+  padding-bottom: 0;
 }
 
+section {
+  margin-bottom: 4rem;
+}
+
+.entry {
+  font-weight: bold;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
 /* --- STUDENT PROFILE --- */
 
-.student-profile {
-  margin-bottom: 2rem;
-  box-shadow: var(--boxShadow);
+.student-profile__img {
+  width: 100px;
+  margin: 0 auto;
 }
 
-.student-profile__heading {
-  margin-block: 1rem 0.5rem;
+hr {
+  margin: 1rem auto;
+}
+
+.student {
+  padding-top: 0.5rem;
+
+  font-size: 1.5rem;
   text-align: center;
 }
 
-.student-profile {
+.student-detail p {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-bottom: 0.15rem;
+}
+
+.student-profile,
+.general-info {
+  box-shadow: var(--boxShadow);
   background-color: var(--neutralWhite);
   padding: 1rem 1.15rem;
   border-radius: var(--borderRadius);
 }
 
-.student-info .info-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.625rem;
+.general-info {
+  padding-top: 1.5rem;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--formText);
+}
+
+td,
+th {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+  padding: 0.5rem;
+}
+
+tr:nth-child(even) {
+  background-color: var(--neutralGrey);
 }
 
 /* --- MODAL --- */
@@ -73,4 +120,24 @@ main {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    column-gap: 2rem;
+  }
+
+  .student-profile {
+    grid-column: 1 / 6;
+  }
+
+  .general-info {
+    grid-column: 6 / -1;
+  }
+
+  .student-detail p {
+    margin-bottom: 0.5rem;
+  }
 }

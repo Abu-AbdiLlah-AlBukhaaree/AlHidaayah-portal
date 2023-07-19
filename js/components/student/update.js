@@ -1,3 +1,17 @@
+import {
+  // variables
+  emailPattern,
+  phonePattern,
+  dobPattern,
+  // functions
+  clearErrorMessages,
+  selectErrorElement,
+  validatePattern,
+  displayErrorMessage,
+} from '../../modules.js';
+
+// ********** VARIABLES **********
+// Some have been imported in line 1
 const studentName = document.querySelector('.student-name');
 const studentEmail = document.querySelector('.student-email');
 const studentPhone = document.querySelector('.student-phone');
@@ -15,52 +29,60 @@ updateForm.address.value = studentAddress.textContent;
 updateForm.dob.value = studentDOB.textContent;
 
 // *********** EVENT LISTENERS **************
-updateForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-  clearErrorMessages();
-  const formDate = new FormData(event.currentTarget);
+// Listen for form submission
+updateForm.addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent default form submission behavior
+  clearErrorMessages(); // Clear any previous error messages
 
-  for (let [name, value] of formDate) {
-    console.log(`${name} = ${value}`);
+  const formData = new FormData(event.currentTarget);
+  const email = e.currentTarget.email.value.trim();
+  const phone = e.currentTarget.phone.value.trim();
+  const dob = e.currentTarget.dob.value.trim();
+  let isError = false;
 
-    if (!value) {
+  // Loop through form data to check for empty fields (excluding 'term')
+  for (let [name, value] of formData) {
+    if (!value && name !== 'term') {
       const element = selectErrorElement(name);
-
-      element.textContent = 'Please enter value';
+      element.textContent = 'Please enter a value';
+      isError = true;
     }
   }
 
-  // Update student details with form values
-  studentName.textContent = updateForm.name.value;
-  studentEmail.textContent = updateForm.email.value;
-  studentPhone.textContent = updateForm.phone.value;
-  studentAddress.textContent = updateForm.address.value;
-  // Show success modal
-  // successModal.style.display = 'block';
+  // Validate email field if not empty
+  if (email && !validatePattern(emailPattern, email)) {
+    displayErrorMessage('email', `Please enter a valid email`);
+    isError = true;
+  }
+
+  // Validate phone number field if not empty
+  if (phone && !validatePattern(phonePattern, phone)) {
+    displayErrorMessage('phone', `Please enter a valid phone number`);
+    isError = true;
+  }
+
+  // Validate date of birth field if not empty
+  if (dob && !validatePattern(dobPattern, dob)) {
+    displayErrorMessage('dob', `Please enter a valid date of birth`);
+    isError = true;
+  }
+
+  // If no validation errors, update student details and show success modal
+  if (!isError) {
+    studentName.textContent = updateForm.name.value;
+    document.querySelector('.student').textContent = updateForm.name.value;
+    studentEmail.textContent = updateForm.email.value;
+    studentPhone.textContent = updateForm.phone.value;
+    studentAddress.textContent = updateForm.address.value;
+    studentDOB.textContent = updateForm.dob.value;
+    successModal.style.display = 'block'; // Show success modal
+  }
 });
 
-// Close success modal
+// Close success modal when the close button is clicked
 closeModalButton.addEventListener('click', function () {
   successModal.style.display = 'none';
 });
 
 // *********** FUNCTIONS **************
-import {
-  clearInputs,
-  clearErrorMessages,
-  selectErrorElement,
-} from '../../modules.js';
-
-// const errorMessage = document.querySelectorAll('.error-message');
-// const errorMessageContent = [];
-// errorMessage.forEach((item) => {
-//   console.log(item.textContent);
-//   if (item.textContent) {
-//     errorMessageContent.push('error');
-//   }
-// });
-// if (errorMessageContent.includes('')) {
-//   console.log('AlhamduliLlah');
-// }
-
-// console.log(errorMessageContent);
+// Some have been imported on the first line

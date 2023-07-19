@@ -19,26 +19,20 @@
 
     <!-- ****** MAIN ****** -->
     <main>
-      <!-- 
-            !!! TODO !!!
-          - Breakdown the name input to firstname, surname, and middle name.
-          - Get rid of the default way of handling error and use the chatGPT style
-          - Validate data using js form api
-      -->
       <form action="./dashboard.html" class="form">
         <h2 class="form__heading heading">Course Registration</h2>
         <div class="underline"></div>
 
         <div class="form__section">
-          <label for="reg-num">Registration Number:</label>
+          <label for="reg_num">Registration Number:</label>
           <input
             type="text"
-            id="reg-num"
-            name="reg-num"
+            id="reg_num"
+            name="reg_num"
             placeholder="ALH12345687"
             class="form-default"
           />
-          <p class="error-message reg-num-error"></p>
+          <p class="error-message reg_num-error"></p>
         </div>
 
         <div class="form__section">
