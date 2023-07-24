@@ -25,10 +25,6 @@ section {
   margin-bottom: 4rem;
 }
 
-.entry {
-  font-weight: bold;
-}
-
 .capitalize {
   text-transform: capitalize;
 }

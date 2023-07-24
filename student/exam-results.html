@@ -12,10 +12,142 @@
   <body>
     <header></header>
 
-    <main style="min-height: 50vh">
-      <br />
-      <h1>This page is under construction</h1>
-      <h3>Please check back later</h3>
+    <!-- 
+        !!! TODO !!!
+      - Add basic student profile (You can copy from update details page)
+      - Remove student name column from table (it is redundant)
+      - Create a container div for table to make it responsive
+      - Add filter button to 'subject', 'test', 'exam', 'score', 'grade'
+      - Create a section for the charts 
+    -->
+    <main>
+      <section class="main-header">
+        <section class="result-summary">
+          <h1 class="result-summary__heading">Results</h1>
+
+          <hr class="result-summary__divide" />
+
+          <article class="result-summary__details">
+            <section class="result-summary__details__single">
+              <!-- UD -->
+              <h2 class="center">SUBJECTS</h2>
+              <p>3</p>
+            </section>
+
+            <section class="result-summary__details__single">
+              <!-- UD -->
+              <h2 class="center">PASSED</h2>
+              <p>3</p>
+            </section>
+
+            <section class="result-summary__details__single">
+              <!-- UD -->
+              <h2 class="center">FAILED</h2>
+              <p>4</p>
+            </section>
+          </article>
+        </section>
+
+        <article class="student-profile">
+          <div class="img-container">
+            <img src="../assets/images/student.png" alt="" class="img" />
+          </div>
+
+          <section class="student-profile__description">
+            <h3 class="student-profile__description__name center">
+              Alli Hassan
+            </h3>
+            <p class="student-profile__description__text center">SSS3</p>
+            <p class="student-profile__description__text center">Science</p>
+          </section>
+        </article>
+      </section>
+
+      <section class="exam-results">
+        <h2>Exam Results</h2>
+        <div class="filter-container">
+          <button type="button" id="filter-button" aria-label="filter">
+            <i class="fas fa-filter"></i>
+            Filter Results
+          </button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <span class="t-head">
+                    Subject
+                    <button
+                      type="button"
+                      class="filter"
+                      aria-label="filter subject"
+                    >
+                      <i class="fas fa-filter"></i>
+                    </button>
+                  </span>
+                </th>
+
+                <th>
+                  <span class="t-head">
+                    Test (40 marks)
+                    <button
+                      type="button"
+                      class="filter"
+                      aria-label="filter test"
+                    >
+                      <i class="fas fa-filter"></i>
+                    </button>
+                  </span>
+                </th>
+
+                <th>
+                  <span class="t-head">
+                    Exam (60 marks)
+                    <button
+                      type="button"
+                      class="filter"
+                      aria-label="filter exam"
+                    >
+                      <i class="fas fa-filter"></i>
+                    </button>
+                  </span>
+                </th>
+
+                <th>
+                  <span class="t-head">
+                    Total (100 marks)
+                    <button
+                      type="button"
+                      class="filter"
+                      aria-label="filter total"
+                    >
+                      <i class="fas fa-filter"></i>
+                    </button>
+                  </span>
+                </th>
+
+                <th>
+                  <span class="t-head">
+                    Grade
+                    <button
+                      type="button"
+                      class="filter"
+                      aria-label="filter grade"
+                    >
+                      <i class="fas fa-filter"></i>
+                    </button>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="results-table-body">
+              <!-- Exam results will be dynamically added here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
     <footer></footer>
