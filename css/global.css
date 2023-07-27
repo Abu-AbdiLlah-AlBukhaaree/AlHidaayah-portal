@@ -47,7 +47,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.heading {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
@@ -93,6 +94,14 @@ button:hover {
 
 .center {
   text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* --- FORMS --- */

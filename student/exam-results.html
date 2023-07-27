@@ -21,133 +21,127 @@
       - Create a section for the charts 
     -->
     <main>
+      <h1 class="visually-hidden">Examination Results Page</h1>
+
+      <!-- *** MAIN HEADER SECTION *** -->
       <section class="main-header">
-        <section class="result-summary">
-          <h1 class="result-summary__heading">Results</h1>
+        <div class="container">
+          <section class="result-summary">
+            <div class="result-summary__divide">
+              <h2 class="result-summary__heading">Results Summary</h2>
+            </div>
 
-          <hr class="result-summary__divide" />
+            <article class="result-summary__details">
+              <article class="result-summary__details__single">
+                <!-- UD -->
+                <h2 class="center">SUBJECTS</h2>
+                <p>3</p>
+              </article>
 
-          <article class="result-summary__details">
-            <section class="result-summary__details__single">
-              <!-- UD -->
-              <h2 class="center">SUBJECTS</h2>
-              <p>3</p>
+              <article class="result-summary__details__single">
+                <!-- UD -->
+                <h2 class="center">PASSED</h2>
+                <p>3</p>
+              </article>
+
+              <article class="result-summary__details__single">
+                <!-- UD -->
+                <h2 class="center">FAILED</h2>
+                <p>4</p>
+              </article>
+            </article>
+          </section>
+
+          <article class="student-profile">
+            <div class="img-container">
+              <img src="../assets/images/student.png" alt="" class="img" />
+            </div>
+
+            <section class="student-profile__description">
+              <h3 class="student-profile__description__name center">
+                Alli Hassan
+              </h3>
+              <p class="student-profile__description__text center">SSS3</p>
+              <p class="student-profile__description__text center">Science</p>
             </section>
+          </article>
+        </div>
+      </section>
+      <!-- *** end of MAIN HEADER SECTION *** -->
 
-            <section class="result-summary__details__single">
-              <!-- UD -->
-              <h2 class="center">PASSED</h2>
-              <p>3</p>
-            </section>
+      <!-- *** EXAM RESULTS SECTION *** -->
+      <section class="exam-results container">
+        <h2 class="visually-hidden">Results Breakdown</h2>
 
-            <section class="result-summary__details__single">
-              <!-- UD -->
-              <h2 class="center">FAILED</h2>
-              <p>4</p>
-            </section>
+        <section class="filter">
+          <h3 class="visually-hidden">Filter Results</h3>
+
+          <article class="filter-section">
+            <label for="subject" class="filter-section__heading">Subject</label>
+            <select name="subject" id="subject">
+              <option value="">Choose filter</option>
+              <option value="general">General First</option>
+              <option value="science">Science First</option>
+            </select>
+          </article>
+
+          <article class="filter-section">
+            <label for="test" class="filter-section__heading">Test</label>
+            <select name="test" id="test">
+              <option value="">Choose filter</option>
+              <option value="ascending">Lowest to Highest</option>
+              <option value="descending">Highest to Lowest</option>
+            </select>
+          </article>
+
+          <article class="filter-section">
+            <label for="exam" class="filter-section__heading">Exam</label>
+            <select name="exam" id="exam">
+              <option value="">Choose filter</option>
+              <option value="ascending">Lowest to Highest</option>
+              <option value="descending">Highest to Lowest</option>
+            </select>
+          </article>
+
+          <article class="filter-section">
+            <label for="total" class="filter-section__heading">Total</label>
+            <select name="total" id="total">
+              <option value="">Choose filter</option>
+              <option value="ascending">Lowest to Highest</option>
+              <option value="descending">Highest to Lowest</option>
+            </select>
+          </article>
+
+          <article class="filter-section">
+            <label for="grade" class="filter-section__heading">Grade</label>
+            <select name="grade" id="grade">
+              <option value="">Choose filter</option>
+              <option value="ascending">Lowest to Highest</option>
+              <option value="descending">Highest to Lowest</option>
+            </select>
           </article>
         </section>
 
-        <article class="student-profile">
-          <div class="img-container">
-            <img src="../assets/images/student.png" alt="" class="img" />
-          </div>
-
-          <section class="student-profile__description">
-            <h3 class="student-profile__description__name center">
-              Alli Hassan
-            </h3>
-            <p class="student-profile__description__text center">SSS3</p>
-            <p class="student-profile__description__text center">Science</p>
-          </section>
-        </article>
-      </section>
-
-      <section class="exam-results">
-        <h2>Exam Results</h2>
-        <div class="filter-container">
-          <button type="button" id="filter-button" aria-label="filter">
-            <i class="fas fa-filter"></i>
-            Filter Results
-          </button>
-        </div>
-
-        <div class="table-container">
+        <section class="table-container">
+          <h3 class="visually-hidden">Exam Results</h3>
           <table>
             <thead>
               <tr>
-                <th>
-                  <span class="t-head">
-                    Subject
-                    <button
-                      type="button"
-                      class="filter"
-                      aria-label="filter subject"
-                    >
-                      <i class="fas fa-filter"></i>
-                    </button>
-                  </span>
-                </th>
-
-                <th>
-                  <span class="t-head">
-                    Test (40 marks)
-                    <button
-                      type="button"
-                      class="filter"
-                      aria-label="filter test"
-                    >
-                      <i class="fas fa-filter"></i>
-                    </button>
-                  </span>
-                </th>
-
-                <th>
-                  <span class="t-head">
-                    Exam (60 marks)
-                    <button
-                      type="button"
-                      class="filter"
-                      aria-label="filter exam"
-                    >
-                      <i class="fas fa-filter"></i>
-                    </button>
-                  </span>
-                </th>
-
-                <th>
-                  <span class="t-head">
-                    Total (100 marks)
-                    <button
-                      type="button"
-                      class="filter"
-                      aria-label="filter total"
-                    >
-                      <i class="fas fa-filter"></i>
-                    </button>
-                  </span>
-                </th>
-
-                <th>
-                  <span class="t-head">
-                    Grade
-                    <button
-                      type="button"
-                      class="filter"
-                      aria-label="filter grade"
-                    >
-                      <i class="fas fa-filter"></i>
-                    </button>
-                  </span>
-                </th>
+                <th class="heading">Subject</th>
+                <th class="heading">Test (40 marks)</th>
+                <th class="heading">Exam (60 marks)</th>
+                <th class="heading">Total (100 marks)</th>
+                <th class="heading">Grade</th>
               </tr>
             </thead>
             <tbody id="results-table-body">
               <!-- Exam results will be dynamically added here -->
             </tbody>
           </table>
-        </div>
+        </section>
+        <h3 class="visually-hidden">Exam Results</h3>
       </section>
+      <!-- *** end of EXAM RESULTS SECTION *** -->
     </main>
 
     <footer></footer>

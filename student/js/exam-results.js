@@ -6,34 +6,91 @@
   - Create pie chart for grade
 */
 
+// ********** VARIABLES ***********
 const resultsTableBody = document.getElementById('results-table-body');
-const filterButton = document.getElementById('filter-button');
-
+const filterSubjectDOM = document.getElementById('subject');
+const filterTestDOM = document.getElementById('test');
+const filterExamDOM = document.getElementById('exam');
+const filterTotalDOM = document.getElementById('total');
+const filterGradeDOM = document.getElementById('grade');
 let examResults = [
   {
     studentName: 'John Doe',
     subject: 'Mathematics',
-    testScore: 35,
-    examScore: 50,
+    department: 'General',
+    test: 35,
+    exam: 50,
+    isCompulsory: true,
   },
   {
     studentName: 'John Doe',
     subject: 'English Language',
-    testScore: 38,
-    examScore: 65,
+    department: 'General',
+    test: 38,
+    exam: 60,
+    isCompulsory: true,
   },
   {
     studentName: 'John Doe',
     subject: 'Physics',
-    testScore: 40,
-    examScore: 55,
+    department: 'Science',
+    test: 40,
+    exam: 55,
+    isCompulsory: true,
+  },
+  {
+    studentName: 'John Doe',
+    subject: 'Further Maths',
+    department: 'Science',
+    test: 23,
+    exam: 33,
+    isCompulsory: false,
   },
   // Add more sample data for other subjects
 ];
 
-// Function to calculate the total score and grade
-function calculateTotalScore(testScore, examScore) {
-  return testScore + examScore;
+// ********** EVENT LISTENERS *********
+filterSubjectDOM.addEventListener('change', (e) => {
+  const element = e.currentTarget;
+  displayExamResults(filterSubjects(element.value));
+});
+
+filterTestDOM.addEventListener('change', (e) => {
+  const element = e.currentTarget;
+  displayExamResults(filterNumericResults(element, element.value));
+});
+
+filterExamDOM.addEventListener('change', (e) => {
+  const element = e.currentTarget;
+  displayExamResults(filterNumericResults(element, element.value));
+});
+
+filterTotalDOM.addEventListener('change', (e) => {
+  const element = e.currentTarget;
+  displayExamResults(filterNumericResults(element, element.value));
+});
+
+filterGradeDOM.addEventListener('change', (e) => {
+  const element = e.currentTarget;
+  displayExamResults(filterNumericResults(element, element.value));
+});
+
+// ********* FUNCTIONS **********
+// It is important to call 'calculateTotalScore' function before calling 'calculateGrade' function because 'calculateGrade' funtion builds on the result of 'calculateTotalScore' function
+// It is important to call 'displayExamResults' function last because it uses the examResult array as value, and this array has been upadated by many other functions
+
+// Call relevant functions
+calculateTotalScore();
+addGradeToExamResults();
+displayExamResults(examResults);
+
+function calculateTotalScore() {
+  examResults.forEach((result) => {
+    const total = result.test + result.exam;
+    result.total = total;
+  });
+
+  return examResults;
 }
 
 function calculateGrade(totalScore) {
@@ -48,24 +105,104 @@ function calculateGrade(totalScore) {
   else return 'F9';
 }
 
-// Function to generate and display exam results
-function displayExamResults() {
-  let html = '';
+function assignGradeToID(grade) {
+  if (grade === 'A1') return 1;
+  else if (grade === 'B2') return 2;
+  else if (grade === 'B3') return 3;
+  else if (grade === 'C4') return 4;
+  else if (grade === 'C5') return 5;
+  else if (grade === 'C6') return 6;
+  else if (grade === 'D7') return 7;
+  else if (grade === 'E8') return 8;
+  else if (grade === 'F9') return 9;
+  else return 'error calculating grade';
+}
+
+function addGradeToExamResults() {
   examResults.forEach((result) => {
-    const totalScore = calculateTotalScore(result.testScore, result.examScore);
-    const grade = calculateGrade(totalScore);
+    const grade = calculateGrade(result.total);
+    const gradeID = assignGradeToID(grade);
+
+    result.grade = grade;
+    result.gradeID = gradeID;
+  });
+  return examResults;
+}
+
+function displayExamResults(arr) {
+  let html = '';
+  arr.forEach((result) => {
     html += `
         <tr>
           <td>${result.subject}</td>
-          <td>${result.testScore}</td>
-          <td>${result.examScore}</td>
-          <td>${totalScore}</td>
-          <td>${grade}</td>
+          <td>${result.test}</td>
+          <td>${result.exam}</td>
+          <td>${result.total}</td>
+          <td>${result.grade}</td>
         </tr>
       `;
   });
-  resultsTableBody.innerHTML = html;
+
+  return (resultsTableBody.innerHTML = html);
 }
 
-// Call the function to display exam results on page load
-displayExamResults();
+function sortSubjectsByGeneral(a, b) {
+  if (
+    a.department.toLowerCase() === 'general' &&
+    b.department.toLowerCase() !== 'general'
+  )
+    return -1;
+  if (
+    a.department.toLowerCase() !== 'general' &&
+    b.department.toLowerCase() === 'general'
+  )
+    return 1;
+  if (a.isCompulsory && !b.isCompulsory) return -1;
+  if (!a.isCompulsory && b.isCompulsory) return 1;
+  return 0;
+}
+
+function sortSubjectsByDepartment(a, b) {
+  if (
+    a.department.toLowerCase() !== 'general' &&
+    b.department.toLowerCase() === 'general'
+  )
+    return -1;
+  if (
+    a.department.toLowerCase() === 'general' &&
+    b.department.toLowerCase() !== 'general'
+  )
+    return 1;
+  if (a.isCompulsory && !b.isCompulsory) return -1;
+  if (!a.isCompulsory && b.isCompulsory) return 1;
+  return 0;
+}
+
+function filterSubjects(value) {
+  if (value.toLowerCase() === 'general') {
+    return examResults.sort(sortSubjectsByGeneral);
+  } else if (value.toLowerCase() === 'science') {
+    return examResults.sort(sortSubjectsByDepartment);
+  }
+}
+
+function filterNumericResults(element, value) {
+  const previousSibling = element.previousElementSibling;
+  let siblingValue;
+  siblingValue = previousSibling.textContent.toLowerCase();
+  if (siblingValue === 'grade') siblingValue = 'gradeID';
+
+  function sortAscendingOrder(a, b) {
+    return a[siblingValue] - b[siblingValue];
+  }
+
+  function sortDescendingOrder(a, b) {
+    return b[siblingValue] - a[siblingValue];
+  }
+
+  if (value === 'ascending') {
+    return examResults.sort(sortAscendingOrder);
+  } else if (value === 'descending') {
+    return examResults.sort(sortDescendingOrder);
+  }
+}
