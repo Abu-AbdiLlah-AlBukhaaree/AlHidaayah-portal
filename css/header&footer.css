@@ -20,6 +20,10 @@ header {
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
 }
 
+.nav-header-container {
+  border-bottom: 2px solid var(--primaryBlue);
+}
+
 .logo-container {
   height: 50px;
 }
@@ -39,7 +43,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.5rem;
-  border-bottom: 2px solid var(--primaryBlue);
 }
 
 .open-nav,
@@ -130,21 +133,26 @@ nav {
 
 @media screen and (min-width: 800px) {
   header {
-    padding: 0.5rem 1.15rem;
+    padding: 0.5rem 0;
     border-bottom: 2px solid var(--primaryBlue);
     background-color: var(--neutralGrey);
   }
 
   nav {
-    max-width: 1140px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    width: min(90%, 1440px);
+    margin: 0 auto;
   }
 
   .nav-header {
     padding: 0;
+    border: none;
+  }
+
+  .nav-header-container {
     border: none;
   }
 

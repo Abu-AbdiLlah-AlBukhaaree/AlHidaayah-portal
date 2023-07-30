@@ -12,20 +12,12 @@
   <body>
     <header></header>
 
-    <!-- 
-        !!! TODO !!!
-      - Add basic student profile (You can copy from update details page)
-      - Remove student name column from table (it is redundant)
-      - Create a container div for table to make it responsive
-      - Add filter button to 'subject', 'test', 'exam', 'score', 'grade'
-      - Create a section for the charts 
-    -->
     <main>
       <h1 class="visually-hidden">Examination Results Page</h1>
 
       <!-- *** MAIN HEADER SECTION *** -->
       <section class="main-header">
-        <div class="container">
+        <div class="section">
           <section class="result-summary">
             <div class="result-summary__divide">
               <h2 class="result-summary__heading">Results Summary</h2>
@@ -70,7 +62,7 @@
       <!-- *** end of MAIN HEADER SECTION *** -->
 
       <!-- *** EXAM RESULTS SECTION *** -->
-      <section class="exam-results container">
+      <section class="exam-results section">
         <h2 class="visually-hidden">Results Breakdown</h2>
 
         <section class="filter">
@@ -116,8 +108,8 @@
             <label for="grade" class="filter-section__heading">Grade</label>
             <select name="grade" id="grade">
               <option value="">Choose filter</option>
-              <option value="ascending">Lowest to Highest</option>
-              <option value="descending">Highest to Lowest</option>
+              <option value="ascending">Highest to Lowest</option>
+              <option value="descending">Lowest to Highest</option>
             </select>
           </article>
         </section>
@@ -142,11 +134,20 @@
         <h3 class="visually-hidden">Exam Results</h3>
       </section>
       <!-- *** end of EXAM RESULTS SECTION *** -->
+
+      <!-- *** RESULT STATISTICS SECTION *** -->
+      <section class="result-statistics section">
+        <h2 class="visually-hidden">Examination Result Statistics</h2>
+        <article class="piechart"></article>
+        <article class="barchart"></article>
+      </section>
+      <!-- *** end of RESULT STATISTICS SECTION *** -->
     </main>
 
     <footer></footer>
 
     <!-- js -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../assets/icons/all.js"></script>
     <script src="../js/shared-components.js"></script>
     <script src="./js/exam-results.js"></script>

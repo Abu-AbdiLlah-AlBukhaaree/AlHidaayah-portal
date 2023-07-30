@@ -80,6 +80,12 @@ button:hover {
   opacity: 0.75;
 }
 
+.section {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 .small-text {
   font-size: 0.75rem;
 }
