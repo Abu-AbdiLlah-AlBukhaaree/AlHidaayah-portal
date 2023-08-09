@@ -12,10 +12,153 @@
   <body>
     <header></header>
 
-    <main style="min-height: 50vh">
-      <br />
-      <h1>This page is under construction</h1>
-      <h3>Please check back later</h3>
+    <main>
+      <h1 class="visually-hidden">Your Dashboard</h1>
+
+      <!-- *** MAIN HEADER SECTION *** -->
+      <section class="main-header">
+        <div class="section odd">
+          <section class="positions-held">
+            <div class="positions-held__divide">
+              <h2 class="positions-held__heading">Positions Held</h2>
+            </div>
+
+            <div class="positions-held__details">
+              <article class="positions-held__details__single">
+                <p><span class="bold">School:</span> Senior prefect</p>
+              </article>
+
+              <article class="positions-held__details__single">
+                <p><span class="bold">Class:</span> Member</p>
+              </article>
+            </div>
+          </section>
+
+          <article class="student-profile">
+            <div class="img-container">
+              <img src="../assets/images/student.png" alt="" class="img" />
+            </div>
+
+            <section class="student-profile__description">
+              <h3 class="student-profile__description__name center">
+                Alli Hassan
+              </h3>
+              <p class="student-profile__description__text center">SSS3</p>
+              <p class="student-profile__description__text center">Science</p>
+            </section>
+          </article>
+        </div>
+      </section>
+      <!-- *** end of MAIN HEADER SECTION *** -->
+
+      <!-- *** ASSIGNMENT SECTION *** -->
+      <section class="assignment section">
+        <h2 class="">Assignments</h2>
+
+        <div class="single-assignment-container"></div>
+      </section>
+      <!-- *** end of ASSIGNMENT SECTION *** -->
+
+      <!-- *** GRADE SUMMARY SECTION *** -->
+      <section class="grade-summary section">
+        <h2 class="visually-hidden">Grade Summary</h2>
+
+        <!-- grade summary table -->
+        <article class="grade-summary__table">
+          <h3 class="visually-hidden"></h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamically Updated -->
+              <tr>
+                <td>Math</td>
+                <td>A1</td>
+              </tr>
+              <tr>
+                <td>English</td>
+                <td>B2</td>
+              </tr>
+              <tr>
+                <td>Math</td>
+                <td>A1</td>
+              </tr>
+              <tr>
+                <td>English</td>
+                <td>B2</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- grade summary chart -->
+        <article class="grade-summary__chart">
+          <h3 class="visually-hidden">Chart Showing Grade Summary</h3>
+          <article class="piechart chart"></article>
+        </article>
+      </section>
+      <!-- *** end of GRADE SUMMARY SECTION *** -->
+
+      <!-- *** RESULT SUMMARY SECTION *** -->
+      <section class="result-summary section">
+        <h2 class="visually-hidden">Result Summary</h2>
+
+        <article class="result-summary__table">
+          <h3 class="visually-hidden"></h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamically Updated -->
+              <tr>
+                <td>Math</td>
+                <td>96</td>
+              </tr>
+              <tr>
+                <td>English</td>
+                <td>74</td>
+              </tr>
+              <tr>
+                <td>Math</td>
+                <td>96</td>
+              </tr>
+              <tr>
+                <td>English</td>
+                <td>74</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="result-summary__chart">
+          <h3 class="visually-hidden">Chart Showing Result Summary</h3>
+          <article class="barchart chart"></article>
+        </article>
+      </section>
+      <!-- *** end of RESULT SUMMARY SECTION *** -->
+
+      <!-- *** ANNOUNCEMENT SECTION *** -->
+      <aside class="announcement section">
+        <h2 class="announcement__main-heading">Announcements</h2>
+        <!-- teachers' announcements -->
+        <section class="teacher-announcement">
+          <h3 class="announcement-heading">From Teachers</h3>
+        </section>
+
+        <!-- admin's announcements -->
+        <section class="admin-announcement">
+          <h3 class="announcement-heading">From Admin</h3>
+        </section>
+      </aside>
+      <!-- *** end of ANNOUNCEMENT SECTION *** -->
     </main>
 
     <footer></footer>

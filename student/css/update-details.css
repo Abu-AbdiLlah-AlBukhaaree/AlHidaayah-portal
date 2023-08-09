@@ -12,7 +12,7 @@
   --h2: clamp(1.5rem, 1.24rem + 1.3vw, 2.25rem);
   --formText: clamp(0.84rem, calc(0.75rem + 0.49vw), 1.13rem);
   --borderRadius: 0.25rem;
-  --boxShadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  --boxShadow: 0px 6px 10px rgba(119, 119, 119, 0.1);
 }
 
 main {

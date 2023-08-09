@@ -81,13 +81,12 @@ button:hover {
 }
 
 .section {
-  width: 90%;
-  max-width: 1440px;
+  width: min(85%, 1440px);
   margin: 0 auto;
 }
 
 .small-text {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .right {
