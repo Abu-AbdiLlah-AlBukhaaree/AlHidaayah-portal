@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="61.875797"
-   height="52.830109"
-   viewBox="0 0 16.371303 13.977965"
+   width="120.94489"
+   height="120.94489"
+   viewBox="0 0 31.999998 31.999998"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    sodipodi:docname="alhidaayah-logo.svg"
    xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -30,8 +30,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="3.3234019"
-     inkscape:cx="45.284923"
-     inkscape:cy="41.523717"
+     inkscape:cx="45.134475"
+     inkscape:cy="65.595437"
      inkscape:window-width="1366"
      inkscape:window-height="715"
      inkscape:window-x="-8"
@@ -198,7 +198,7 @@
          x="20.135592"
          y="91.868637" /></text><g
        id="g9227"
-       transform="matrix(1.252459,0,0,1.252459,-1.0405449,-2.4784049)"><path
+       transform="matrix(2.4403986,0,0,2.4403986,-10.555292,-16.008833)"><path
          id="path1787"
          style="fill:none;stroke:#002e5d;stroke-width:1.14717;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
          d="M 8.606559,11.34408 30.790018,25.643756 M 34.445835,14.269468 12.828979,26.241478 M 32.863239,9.478906 7.7772717,17.146848 M 12.960321,5.334074 33.899849,20.048232 M 26.8509,3.4688968 21.460524,29.788589 M 21.045882,2.4326895 10.679781,24.400305"
