@@ -186,10 +186,7 @@ td {
 }
 
 .chart {
-  background-color: var(--secondaryGold);
-
   width: 100%;
-  width: 300px; /* !!! Remove */
   height: 40vh;
 }
 
@@ -273,7 +270,6 @@ td {
 
   .chart {
     height: 300px;
-    width: 400px; /* !!! REMOVE */
     max-width: 400px;
 
     margin-bottom: 0;
