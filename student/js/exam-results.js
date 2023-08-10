@@ -243,67 +243,81 @@ const examResultsTotalOnly = examResults.map((result) => {
   return [subject, total];
 });
 
-// Load Google Charts API and draw the pie chart
-google.charts.load('current', { packages: ['corechart'] });
-google.charts.setOnLoadCallback(drawPieChart);
-google.charts.setOnLoadCallback(drawBarChart);
+function loadChart() {
+  const errorDOM = document.querySelector('.error');
+  try {
+    // Load Google Charts API and draw the pie chart
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawPieChart);
+    google.charts.setOnLoadCallback(drawBarChart);
 
-// Draw the pie chart
-function drawPieChart() {
-  const data = google.visualization.arrayToDataTable([
-    ['Employee Name', 'Salary'],
-    ...examResultsGradeOnly,
-  ]);
+    // Draw the pie chart
+    function drawPieChart() {
+      const data = google.visualization.arrayToDataTable([
+        ['Employee Name', 'Salary'],
+        ...examResultsGradeOnly,
+      ]);
 
-  const options = {
-    title: 'Grades Summary',
-    titleTextStyle: {
-      color: '#022243',
-      fontName: 'Montserrat',
-    },
-    legend: {
-      position: 'bottom',
-      textStyle: { color: '#222', fontName: 'sans-serif', fontSize: 16 },
-    },
-    backgroundColor: 'transparent',
-    colors: ['#00a651', '#ffc72c'],
-    fontSize: 16,
-    fontName: 'Open Sans',
-    tooltip: { textName: 'Open Sans' },
-  };
+      const options = {
+        title: 'Grades Summary',
+        titleTextStyle: {
+          color: '#022243',
+          fontName: 'Montserrat',
+        },
+        legend: {
+          position: 'bottom',
+          textStyle: { color: '#222', fontName: 'sans-serif', fontSize: 16 },
+        },
+        backgroundColor: 'transparent',
+        colors: ['#00a651', '#ffc72c'],
+        fontSize: 16,
+        fontName: 'Open Sans',
+        tooltip: { textName: 'Open Sans' },
+      };
 
-  const chart = new google.visualization.PieChart(piechart);
-  chart.draw(data, options);
+      const chart = new google.visualization.PieChart(piechart);
+      chart.draw(data, options);
+    }
+
+    // Draw the bar chart
+    function drawBarChart() {
+      const data = google.visualization.arrayToDataTable([
+        [
+          { label: 'Subject', id: 'subject' },
+          { label: 'Score', id: 'score', type: 'number' }, // Use object notation to explicitly specify the data type.
+        ],
+
+        ...examResultsTotalOnly,
+      ]);
+
+      const options = {
+        title: 'Subjects and Their Total Scores',
+        titleTextStyle: {
+          color: '#022243',
+          fontName: 'Montserrat',
+        },
+        legend: {
+          position: 'bottom',
+          textStyle: { color: '#222', fontName: 'sans-serif', fontSize: 16 },
+        },
+        backgroundColor: 'transparent',
+        colors: ['#00a651', '#ffc72c'],
+        fontSize: 16,
+        fontName: 'Open Sans',
+        animation: { startup: true, duration: 1000, easing: 'inAndOut' },
+      };
+
+      const chart = new google.visualization.BarChart(barchart);
+      chart.draw(data, options);
+    }
+  } catch (error) {
+    piechart.style.display = 'none';
+    barchart.style.display = 'none';
+    errorDOM.classList.add('show-error');
+    errorDOM.textContent =
+      'Unable to load charts.\nPlease check you internet connection.';
+    console.error('Error:', error);
+  }
 }
 
-// Draw the bar chart
-function drawBarChart() {
-  const data = google.visualization.arrayToDataTable([
-    [
-      { label: 'Subject', id: 'subject' },
-      { label: 'Score', id: 'score', type: 'number' }, // Use object notation to explicitly specify the data type.
-    ],
-
-    ...examResultsTotalOnly,
-  ]);
-
-  const options = {
-    title: 'Subjects and Their Total Scores',
-    titleTextStyle: {
-      color: '#022243',
-      fontName: 'Montserrat',
-    },
-    legend: {
-      position: 'bottom',
-      textStyle: { color: '#222', fontName: 'sans-serif', fontSize: 16 },
-    },
-    backgroundColor: 'transparent',
-    colors: ['#00a651', '#ffc72c'],
-    fontSize: 16,
-    fontName: 'Open Sans',
-    animation: { startup: true, duration: 1000, easing: 'inAndOut' },
-  };
-
-  const chart = new google.visualization.BarChart(barchart);
-  chart.draw(data, options);
-}
+loadChart();
