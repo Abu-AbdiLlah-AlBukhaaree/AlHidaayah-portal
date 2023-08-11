@@ -54,7 +54,6 @@ h2 {
 
 .result-summary__heading {
   margin: 0;
-  margin-inline: var(--margin-inline);
 }
 
 .result-summary__divide {
@@ -70,7 +69,7 @@ h2 {
   flex-wrap: wrap;
   gap: 1ch;
 
-  padding-inline: var(--margin-inline);
+  padding-inline: 0 var(--margin-inline);
 }
 
 .result-summary__details__single h2 {
@@ -86,7 +85,6 @@ h2 {
 }
 
 .student-profile {
-  margin-right: var(--margin-inline);
   line-height: 1.2;
 }
 
@@ -96,7 +94,10 @@ h2 {
 }
 
 .student-profile__description__name {
-  font-weight: 500;
+  margin-bottom: 0.3rem;
+
+  font-weight: 600;
+  border-bottom: 1px dashed var(--neutralGrey);
 }
 
 .student-profile__description__text {
