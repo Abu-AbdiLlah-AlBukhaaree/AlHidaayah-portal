@@ -14,7 +14,7 @@ import {
   validatePattern,
   selectErrorElement,
   displayErrorMessage,
-} from '../../js/modules.js';
+} from '../modules.js';
 
 // *** VARIABLES ***
 // some have been imported on line 1
