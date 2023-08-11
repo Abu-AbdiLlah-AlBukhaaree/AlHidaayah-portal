@@ -8,105 +8,64 @@
     <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/header&footer.css" />
+
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#022243" />
   </head>
 
   <body>
     <!-- Header Section -->
     <header></header>
 
-    <main style="min-height: 50vh">
-      <br />
-      <h1>This page is under construction</h1>
-      <h3>Please check back later</h3>
+    <main>
+      <h1 class="visually-hidden">Welcome to Alhidaayah School Portal</h1>
 
-      <!-- <section class="hero">
-        <div class="hero-content">
-          <h1>Welcome to [School Name]</h1>
-          <p>A nurturing environment for holistic education</p>
-          <a href="#" class="cta-button">Discover More</a>
-        </div>
-      </section>
-
-      <section class="about">
-        <div class="container">
-          <h2>About [School Name]</h2>
+      <!-- *** MODAL *** -->
+      <section id="modal" class="modal">
+        <article class="modal-content">
           <p>
-            [School Name] is a premier educational institution that upholds the
-            fundamental beliefs of pristine Islam while delivering a modern-day
-            education. We are committed to providing a nurturing and inclusive
-            learning environment that fosters academic excellence, good morals,
-            and character development.
+            We are sorry. This portal is still under construction. You can log
+            in as a student. Click on the Dashboard button to continue.
           </p>
-          <p>
-            With a team of dedicated educators and a comprehensive curriculum,
-            we aim to empower our students with Islamic values, critical
-            thinking skills, and a deep sense of social responsibility. At
-            [School Name], we prepare our students to thrive as compassionate
-            and well-rounded individuals in a diverse and rapidly evolving
-            world.
-          </p>
-        </div>
+          <a href="another-page.html" class="modal-button">
+            Go to Another Page
+          </a>
+        </article>
       </section>
+      <!-- *** end of  MODAL *** -->
 
-      <section class="features">
-        <div class="container">
-          <h2>Why Choose [School Name]?</h2>
-          <div class="feature-item">
-            <img src="dummy-feature-image-1.jpg" alt="Feature 1 Image" />
-            <h3>Academic Excellence</h3>
-            <p>
-              We offer a rigorous academic program that fosters critical
-              thinking, creativity, and a love for learning.
-            </p>
-          </div>
-          <div class="feature-item">
-            <img src="dummy-feature-image-2.jpg" alt="Feature 2 Image" />
-            <h3>Islamic Values</h3>
-            <p>
-              Our curriculum integrates Islamic studies, teaching Quranic
-              principles, and promoting moral values.
-            </p>
-          </div>
-          <div class="feature-item">
-            <img src="dummy-feature-image-3.jpg" alt="Feature 3 Image" />
-            <h3>Character Development</h3>
-            <p>
-              We focus on nurturing good morals, ethical behavior, and building
-              strong character in our students.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="testimonials">
-        <div class="container">
-          <h2>What Our Students Say</h2>
-          <div class="testimonial">
-            <img src="dummy-student-image-1.jpg" alt="Student 1 Image" />
-            <blockquote>
-              "I'm grateful for the holistic education I received at [School
-              Name]. It has shaped me into a responsible individual with strong
-              values and a thirst for knowledge."
-            </blockquote>
-            <cite>- John Doe, Alumni</cite>
-          </div>
-          <div class="testimonial">
-            <img src="dummy-student-image-2.jpg" alt="Student 2 Image" />
-            <blockquote>
-              "The blend of Islamic teachings and modern education at [School
-              Name] has prepared me to face the challenges of the world while
-              staying true to my faith."
-            </blockquote>
-            <cite>- Jane Smith, Student</cite>
-          </div>
-        </div>
-      </section> -->
+      <!-- *** LOADING FUNCITONALITY *** -->
+      <aside class="loader-wrapper">
+        <div class="loader"></div>
+      </aside>
+      <!-- *** end of LOADING FUNCITONALITY *** -->
     </main>
 
     <!-- Footer Section -->
     <footer></footer>
 
     <!-- js -->
+    <script src="../js/loader.js"></script>
     <script src="./assets/icons/all.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/shared-components.js"></script>

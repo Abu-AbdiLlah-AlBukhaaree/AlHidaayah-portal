@@ -1,6 +1,11 @@
-window.addEventListener('load', function () {
-  const loaderWrapper = document.querySelector('.loader-wrapper');
+const modal = document.getElementById('modal');
 
-  // loaderWrapper.style.opacity = 0; // Hide the loader
-  loaderWrapper.classList.add('loaded'); // Show the content with fade-in effect
+window.addEventListener('load', () => {
+  modal.style.display = 'flex';
+});
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
 });
