@@ -24,6 +24,9 @@ main {
   width: min(60%, 500px);
   padding: 1.25rem;
 
+  text-align: justify;
+  line-height: 1.2;
+
   border-radius: 5px;
 }
 
