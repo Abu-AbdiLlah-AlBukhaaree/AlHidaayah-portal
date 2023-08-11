@@ -180,9 +180,6 @@ textarea {
 }
 
 .form__btn {
-  background-color: var(--primaryBlue);
-  color: var(--neutralGrey);
-
   background-color: var(--secondaryGreen);
   color: var(--neutralWhite);
 
